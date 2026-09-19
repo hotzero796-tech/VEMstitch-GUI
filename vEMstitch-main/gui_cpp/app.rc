@@ -1,0 +1,49 @@
+// vEMstitch Workbench resources: application icon, manifest (per-monitor-v2 DPI awareness,
+// UTF-8 code page, common controls v6) and version information.
+// build.bat compiles this with rc.exe into build\app.res, which is linked into the exe.
+// Paths are relative to this file's folder (gui_cpp\): build.bat runs rc from there, after
+// checking that assets\icon.ico exists.
+// The manifest is embedded here as resource 1, so link with /MANIFEST:NO.
+
+#include <windows.h>
+
+// The only icon in the exe: main.cpp loads it for the window (title bar, taskbar), and
+// Explorer shows it for the .exe file.
+#define IDI_APPICON 101   // main.cpp: kIconResource
+
+IDI_APPICON ICON "assets\\icon.ico"
+
+// Resource 1 of type RT_MANIFEST is the manifest Windows reads when it starts the process.
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "app.manifest"
+
+// Version information, shown in the exe's Properties > Details in Explorer.
+// Keep the numbers in step with kAppVersion in app.cpp (the version the app itself shows).
+// Block "040904b0": language 0409 = US English, code page 04b0 = 1200 = Unicode; the
+// "Translation" value at the end must name the same pair.
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 0,33,0,0
+ PRODUCTVERSION 0,33,0,0
+ FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+ FILEFLAGS 0x0L
+ FILEOS VOS_NT_WINDOWS32
+ FILETYPE VFT_APP
+ FILESUBTYPE VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "Front end for the vEMstitch C++ stitching code"
+            VALUE "FileDescription", "vEMstitch Workbench"
+            VALUE "FileVersion", "0.33.0.0"
+            VALUE "InternalName", "vEMstitchWorkbench"
+            VALUE "OriginalFilename", "vEMstitchWorkbench.exe"
+            VALUE "ProductName", "vEMstitch Workbench"
+            VALUE "ProductVersion", "0.33.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END

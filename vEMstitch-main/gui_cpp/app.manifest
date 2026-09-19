@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+  <!--
+    Application manifest of vEMstitch Workbench. app.rc embeds it into the exe as resource 1,
+    and Windows reads it when the program starts. It settles, before any of our code runs:
+    which common-controls version to load, that no administrator rights are needed, which
+    Windows versions the app was written for, DPI awareness, the UTF-8 code page and long
+    path support.
+  -->
+
+  <!-- Names this program for Windows; amd64 because the exe is a 64-bit build. -->
+  <assemblyIdentity type="win32" name="vEMstitch.Workbench" version="1.0.0.0" processorArchitecture="amd64"/>
+  <description>vEMstitch Workbench</description>
+
+  <!-- Common controls version 6: the parts Windows draws for us, such as message boxes,
+       get the current visual style instead of the classic Windows 95 look. -->
+  <dependency>
+    <dependentAssembly>
+      <assemblyIdentity type="win32" name="Microsoft.Windows.Common-Controls" version="6.0.0.0"
+                        processorArchitecture="*" publicKeyToken="6595b64144ccf1df" language="*"/>
+    </dependentAssembly>
+  </dependency>
+
+  <!-- asInvoker: run with the user's normal rights, never ask for elevation. -->
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
+    <security>
+      <requestedPrivileges>
+        <requestedExecutionLevel level="asInvoker" uiAccess="false"/>
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+
+  <!-- Windows versions the app declares support for. Without these entries Windows treats
+       the program as written for an older version and applies compatibility behaviour. -->
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- Windows 10 and 11 -->
+      <supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}"/>
+      <!-- Windows 8.1 -->
+      <supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}"/>
+    </application>
+  </compatibility>
+
+  <application xmlns="urn:schemas-microsoft-com:asm.v3">
+    <windowsSettings>
+      <!-- Real pixels on scaled displays (the dev machine runs at 125 %), re-evaluated per monitor.
+           Without it Windows would draw the app at 100 % and stretch the bitmap, which looks
+           blurry. Windows 8.1 and early Windows 10 read dpiAware (true/pm = per monitor);
+           Windows 10 version 1607 and later read dpiAwareness instead, which asks for
+           PerMonitorV2 and falls back to PerMonitor. main.cpp handles WM_DPICHANGED when the
+           window moves to a monitor with another scale, and App scales fonts and sizes. -->
+      <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">true/pm</dpiAware>
+      <dpiAwareness xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">PerMonitorV2, PerMonitor</dpiAwareness>
+      <!-- UTF-8 as the process code page (Windows 10 version 1903 or later). The app keeps
+           every path as UTF-8 text, and this is meant to let the few narrow-char calls, such as
+           the cv::imcount / cv::imread used to inspect a picked non-tile file, open non-English
+           names too. Tile and mosaic files do not rely on it: non-ASCII paths are read through
+           wide-char APIs and decoded from memory with cv::imdecode. -->
+      <activeCodePage xmlns="http://schemas.microsoft.com/SMI/2019/WindowsSettings">UTF-8</activeCodePage>
+      <!-- Lets wide-char file APIs use paths longer than 260 characters, when long paths are
+           also enabled in Windows. -->
+      <longPathAware xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">true</longPathAware>
+    </windowsSettings>
+  </application>
+</assembly>
