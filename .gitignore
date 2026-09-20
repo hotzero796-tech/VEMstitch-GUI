@@ -1,0 +1,19 @@
+# Build output: produced by vEMstitch-main/gui_cpp/build.bat
+vEMstitch-main/gui_cpp/build/
+vEMstitch-main/gui_cpp/dist/
+
+# Packaged copy: the folder is kept, the zip of it is not
+vEMstitch-main/gui_cpp/share/*.zip
+vEMstitch-main/gui_cpp/share/vEMstitchWorkbench/test/
+vEMstitch-main/gui_cpp/share/vEMstitchWorkbench/output/
+
+# Temporary file left behind by the resource compiler
+vEMstitch-main/gui_cpp/RC*
+
+# Third-party source fetched during the build (see README)
+vEMstitch-main/gui_cpp/third_party/
+
+# Editor and Python leftovers
+.idea/
+__pycache__/
+*.pyc

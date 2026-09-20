@@ -32,8 +32,8 @@ Tiles are named `{section}_{row}_{col}`, numbered from 1, for example `165_1_1.b
 `.bmp`, `.png`, `.tif`, `.tiff`, `.jpg` and `.jpeg` all work. The mosaic is saved as
 `{section}-res.bmp` in the output folder.
 
-A 3 x 3 section of 2048 x 1768 tiles takes about 80 seconds. Sample tiles come with the app, in its
-`test` folder, and more are in `vEMstitch-main\related_data`.
+A 3 x 3 section of 2048 x 1768 tiles takes about 80 seconds. Sample tiles to try it on are in
+`vEMstitch-main\test`, with more in `vEMstitch-main\related_data`.
 
 **Refine** is the authors' optional second pass for sections where a seam is still visible. It is
 very slow: 78 minutes on the sample section, against 80 seconds without it.
