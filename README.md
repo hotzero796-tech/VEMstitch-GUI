@@ -65,12 +65,17 @@ Do not set the output folder to one of these dataset folders. The application wr
 
 ## Licences and credits
 
-vEMstitch is the work of its original authors and is included here unchanged:
-<https://github.com/HeracleBT/vEMstitch>. Their code is **GPL-3.0** and their data **CC0**. This
-interface links their code, so it is **GPL-3.0** as well.
+**This repository is licensed under GPL-3.0**, the full text being in `LICENSE`. It has to be:
+vEMstitch is GPL-3.0 and the interface compiles that code into the same program, so the combined
+work carries the same licence.
 
-The interface also uses **Dear ImGui** (MIT) and **OpenCV** (Apache-2.0). Full licence texts are in
+vEMstitch is the work of its original authors and is included here unchanged:
+<https://github.com/HeracleBT/vEMstitch>. Their code is **GPL-3.0** and their data **CC0**.
+
+The interface also uses **Dear ImGui** (MIT) and **OpenCV** (Apache-2.0), neither of which
+conflicts with GPL-3.0. Their licence texts are in
 `vEMstitch-main\gui_cpp\share\vEMstitchWorkbench\licenses`.
 
-Interface by **Abdulrahman Ali**, for the volume electron microscopy pipeline at
-[CIMA Lab](https://cima-lab.github.io/research/index.html).
+Interface written by **Abdulrahman Ali** — Copyright © 2026 Abdulrahman Ali — for the volume
+electron microscopy pipeline at [CIMA Lab](https://cima-lab.github.io/research/index.html),
+supervised by Dr. Haythem El-Messiry.
