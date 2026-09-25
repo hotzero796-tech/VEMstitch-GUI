@@ -76,6 +76,7 @@ The interface also uses **Dear ImGui** (MIT) and **OpenCV** (Apache-2.0), neithe
 conflicts with GPL-3.0. Their licence texts are in
 `vEMstitch-main\gui_cpp\share\vEMstitchWorkbench\licenses`.
 
-Interface written by **Abdulrahman Ali** — Copyright © 2026 Abdulrahman Ali — for the volume
-electron microscopy pipeline at [CIMA Lab](https://cima-lab.github.io/research/index.html),
-supervised by Dr. Haythem El-Messiry.
+Interface written by **Abdulrahman Ali** for the volume electron microscopy pipeline at
+[CIMA Lab](https://cima-lab.github.io/research/index.html), supervised by Dr. Haythem
+El-Messiry. The copyright notice is in the header of every interface source file, under
+`vEMstitch-main\gui_cpp\src`.
